@@ -21,6 +21,7 @@ class _ProfileState extends State<Profile> {
         ),
         actions: [
          PopupMenuButton(
+
            elevation: 1,
              padding: const EdgeInsets.only(bottom: 5),
              icon: const Icon(Icons.settings_outlined),
