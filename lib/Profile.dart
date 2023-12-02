@@ -4,7 +4,6 @@ import 'package:healthapp/models/profile_model.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
-
   @override
   State<Profile> createState() => _ProfileState();
 }
@@ -45,23 +44,63 @@ class _ProfileState extends State<Profile> {
       ),
       body: ListView(
         children:  [
-          const Column(
+          Column(
             children: [
-              CircleAvatar(
-                radius: 75,
+              GestureDetector(
+                onTap: (){
+                      showModalBottomSheet(
+                          context: context,
+                          backgroundColor: Colors.white,
+                          builder: (context){
+                        return Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(20),
+                          height: 210,
+                         child: Column( children: [...List.generate(2, (index) {
+                          return  Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: GestureDetector(
+                              onTap: (){
+                                  if(index==1){
+                                    
+                                  }
+                              },
+                              child: Card(
+                                elevation: 0,
+                                shadowColor: Colors.black12,
+                                child: ListTile(
+                                  leading: Icon(profileimage[index].icon),
+                                  title: Text(profileimage[index].name),
+                                  trailing: const Icon(Icons.chevron_right_outlined),
+                                ),
+                              ),
+                            ),
+                          );
+                         }
+                         ),
+                         ],
+                         ),
+                        );
+                          }
+                          );
+                },
+                child: const CircleAvatar(
+                  radius: 75,
+                  child: Icon(Icons.person, size: 50,),
+                ),
               ),
-              SizedBox(height: 15,),
-              Text(
+              const SizedBox(height: 15,),
+              const Text(
                 "Aryan Singh",
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(right: 10),
                 child: Text(
                     "Mathura"
